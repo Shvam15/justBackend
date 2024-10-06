@@ -7,8 +7,8 @@ import authRoutes from './routes/authRoute.js'
 import cors from 'cors'
 import categoryRoutes from './routes/categoryRoutes.js'
 import productRoutes from './routes/productRoutes.js'
-import path from "path"
-import {fileURLToPath} from "url"
+// import path from "path"
+// import {fileURLToPath} from "url"
 
 // import Razorpay from 'razorpay';
 
@@ -52,13 +52,13 @@ app.use('/api/v1/product', productRoutes)
 
 
 //rest api
-// app.get('/', (req, res) => {
-//     res.send('<h1>Welcome to eCommerce App</h1>');
-// });
+app.get('/', (req, res) => {
+    res.send('<h1>Welcome to eCommerce App</h1>');
+});
 
-app.use('*',function(req,res){
-    res.sendFile(path.join(__dirname, '../client/build/index.html'));
-})
+// app.use('*',function(req,res){
+//     res.sendFile(path.join(__dirname, '../client/build/index.html'));
+// })
 
 //razorpay
 // middlewares
