@@ -12,10 +12,10 @@ import productRoutes from './routes/productRoutes.js'
 
 // import Razorpay from 'razorpay';
 
-// dotenv.config()
+dotenv.config()
 
 //database config
-// connectDB()
+connectDB()
 
 // const __filename = fileURLToPath(import.meta.url);
 // const __dirname = path.dirname(__filename)
@@ -40,15 +40,15 @@ const PORT = process.env.PORT
 // }));
 
 
-// app.use(bodyParser.json()); 
-// app.use(express.json())
-// app.use(morgan('dev'))
+app.use(bodyParser.json()); 
+app.use(express.json())
+app.use(morgan('dev'))
 // app.use(express.static(path.join(__dirname, '../client/build')));
 
 //routes
-// app.use('/api/v1/auth', authRoutes)
-// app.use('/api/v1/category', categoryRoutes)
-// app.use('/api/v1/product', productRoutes)
+app.use('/api/v1/auth', authRoutes)
+app.use('/api/v1/category', categoryRoutes)
+app.use('/api/v1/product', productRoutes)
 
 
 
@@ -60,34 +60,6 @@ app.get('/', (req, res) => {
 // app.use('*',function(req,res){
 //     res.sendFile(path.join(__dirname, '../client/build/index.html'));
 // })
-
-//razorpay
-// middlewares
-// app.use(express.json({ extended: false }));
-// app.post("/orders", async (req, res) => {
-//     try {
-//         const { amount, currency, receipt } = req.body;
-//         const instance = new Razorpay({
-//             key_id: process.env.RAZORPAY_KEY_ID,
-//             key_secret: process.env.RAZORPAY_SECRET,
-//         });
-
-//         const options = {
-//             amount,
-//             currency,
-//             receipt,
-//         };
-
-//         const order = await instance.orders.create(options);
-
-//         if (!order) return res.status(500).send("Some error occured");
-
-//         res.json(order);
-//     } catch (error) {
-//         res.status(500).send(error);
-//     }
-// });
-
 
 //PORT
 app.listen(PORT, () => {
