@@ -12,24 +12,25 @@ import productRoutes from './routes/productRoutes.js'
 
 // import Razorpay from 'razorpay';
 
-dotenv.config()
+// dotenv.config()
 
 //database config
-connectDB()
+// connectDB()
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename)
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename)
 
 //rest object
 const app = express();
+const PORT = process.env.PORT
 
 //middleware
-app.use(cors({
-    origin: 'http://localhost:3000', // Adjust this based on your frontend URL
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Adjust allowed methods as needed
-    allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
-    credentials: true // Allow cookies to be sent across domains
-}));
+// app.use(cors({
+//     origin: 'http://localhost:3000', // Adjust this based on your frontend URL
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Adjust allowed methods as needed
+//     allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
+//     credentials: true // Allow cookies to be sent across domains
+// }));
 
 // app.options('*', cors({
 //     origin: 'https://shopstore-frontend.vercel.app',
@@ -39,15 +40,15 @@ app.use(cors({
 // }));
 
 
-app.use(bodyParser.json()); // Ensure this line is present
-app.use(express.json())
-app.use(morgan('dev'))
-app.use(express.static(path.join(__dirname, '../client/build')));
+// app.use(bodyParser.json()); 
+// app.use(express.json())
+// app.use(morgan('dev'))
+// app.use(express.static(path.join(__dirname, '../client/build')));
 
 //routes
-app.use('/api/v1/auth', authRoutes)
-app.use('/api/v1/category', categoryRoutes)
-app.use('/api/v1/product', productRoutes)
+// app.use('/api/v1/auth', authRoutes)
+// app.use('/api/v1/category', categoryRoutes)
+// app.use('/api/v1/product', productRoutes)
 
 
 
@@ -89,8 +90,6 @@ app.get('/', (req, res) => {
 
 
 //PORT
-const PORT = process.env.PORT
-
 app.listen(PORT, () => {
     console.log(`Server running on ${process.env.MODE} port ${PORT}`);
 });
