@@ -509,7 +509,7 @@ export const getSessionId = async (req, res) => {
                 customer_phone: customer_phone,
             },
             order_meta: {
-                return_url: `http://localhost:3000/dashboard/user/orders`,
+                return_url: `https://just-fronted.vercel.app/dashboard/user/orders`,
             },
         };
 
