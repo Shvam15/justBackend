@@ -57,6 +57,17 @@ app.get('/', (req, res) => {
     res.send('<h1>Welcome to eCommerce App</h1>');
 });
 
+//cashfree-webhook
+app.post('/cashfree-payment', (req, res) => {
+    // Log the incoming request body
+    console.log('Received webhook data:', req.body);
+
+    // Do something with the webhook data here
+
+    // Send a response back to acknowledge receipt
+    res.status(200).send('Webhook received successfully!');
+});
+
 // app.use('*',function(req,res){
 //     res.sendFile(path.join(__dirname, '../client/build/index.html'));
 // })
